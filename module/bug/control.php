@@ -266,6 +266,7 @@ class bug extends control
         $type       = 'codeerror';
         $pri        = '';
         $color      = '';
+        $lowbug     = 0;
 
         /* Parse the extras. */
         $extras = str_replace(array(',', ' '), array('&', ''), $extras);
@@ -289,6 +290,7 @@ class bug extends control
             $assignedTo = $bug->assignedTo;
             $deadline   = $bug->deadline;
             $color      = $bug->color;
+            $lowbug     = $bug->lowbug;
         }
 
         /* If projectID is setted, get builds and stories of this project. */
@@ -353,7 +355,7 @@ class bug extends control
         $this->view->branch           = $branch;
         $this->view->branches         = $branches;
         $this->view->color            = $color;
-
+        $this->view->lowbug           = $lowbug;
         $this->display();
     }
 
