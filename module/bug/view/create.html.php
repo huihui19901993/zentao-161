@@ -69,7 +69,7 @@ js::set('confirmDeleteTemplate', $lang->bug->confirmDeleteTemplate);
         <?php $showBrowser = strpos(",$showFields,", ',browser,') !== false;?>
         <?php $showLowBug  = strpos(",$showFields,", ',lowbug,')      !== false;?>
         <?php $showPhase = strpos(",$showFields,", ',phase,') !== false;?>
-        <td>
+        <td colspan="2">
           <div class='input-group' id='bugTypeInputGroup'>
             <?php
             /* Remove the unused types. */
