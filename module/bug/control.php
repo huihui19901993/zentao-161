@@ -293,6 +293,7 @@ class bug extends control
             $deadline   = $bug->deadline;
             $color      = $bug->color;
             $lowbug     = $bug->lowbug;
+            $phase     = $bug->phase;
         }
 
         /* If projectID is setted, get builds and stories of this project. */
