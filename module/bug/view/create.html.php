@@ -129,7 +129,7 @@ js::set('confirmDeleteTemplate', $lang->bug->confirmDeleteTemplate);
       <?php $showBrowser = strpos(",$showFields,", ',browser,') !== false;?>
       <tr>
         <th><?php echo $lang->bug->type;?></th>
-        <td>
+        <td colspan="2">
           <div class='input-group' id='bugTypeInputGroup'>
             <?php
             /* Remove the unused types. */
@@ -138,6 +138,10 @@ js::set('confirmDeleteTemplate', $lang->bug->confirmDeleteTemplate);
             unset($lang->bug->typeList['trackthings']);
             echo html::select('type', $lang->bug->typeList, $type, "class='form-control'");
             ?>
+            <span class='input-group-addon fix-border'><?php echo $lang->bug->lowbug?></span>
+            <?php echo html::select('lowbug', $lang->bug->lowbugList, $lowbug, "class='form-control'");?>
+            <span class='input-group-addon fix-border'><?php echo $lang->bug->phase?></span>
+            <?php echo html::select('phase', $lang->bug->phaseList, $phase, "class='form-control'");?>
             <?php if($showOS):?>
             <span class='input-group-addon fix-border'><?php echo $lang->bug->os?></span>
             <?php echo html::select('os', $lang->bug->osList, $os, "class='form-control'");?>
