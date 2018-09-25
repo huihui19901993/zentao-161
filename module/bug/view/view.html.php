@@ -157,8 +157,12 @@
                 <td><span class='<?php echo 'severity' . zget($lang->bug->severityList, $bug->severity);?>'><?php echo zget($lang->bug->severityList, $bug->severity)?></span></td>
               </tr>
               <tr>
-                <th><?php echo $lang->bug->pri;?></th>
-                <td><span class='<?php echo 'pri' . zget($lang->bug->priList, $bug->pri);?>'><?php echo zget($lang->bug->priList, $bug->pri)?></span></td>
+                  <th><?php echo $lang->bug->lowbug;?></th>
+                  <td><span class='<?php echo 'lowbug' . zget($lang->bug->lowbugList, $bug->lowbug);?>'><?php echo zget($lang->bug->lowbugList, $bug->lowbug)?></span></td>
+              </tr>
+              <tr>
+                <th><?php echo $lang->bug->phase;?></th>
+                <td><span class='<?php echo 'phase' . zget($lang->bug->phaseList, $bug->phase);?>'><?php echo zget($lang->bug->phaseList, $bug->phase)?></span></td>
               </tr>
               <tr>
                 <th><?php echo $lang->bug->status;?></th>
