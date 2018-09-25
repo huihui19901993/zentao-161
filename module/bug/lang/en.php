@@ -67,6 +67,11 @@ $lang->bug->lastEditedDate   = 'Edit On';
 $lang->bug->fromCase         = 'From a Case';
 $lang->bug->toCase           = 'To a Case';
 $lang->bug->colorTag         = 'Color Tag';
+#新加的
+#bug发现阶段
+$lang->bug->phase            = 'phase';
+#添加低级bug字段
+$lang->bug->lowbug           = 'lowbug';
 
 /* 方法列表。*/
 $lang->bug->index              = 'Home';
@@ -244,6 +249,22 @@ $lang->bug->resolutionList['notrepro']   = 'Irreproducible';
 $lang->bug->resolutionList['postponed']  = 'Postponed';
 $lang->bug->resolutionList['willnotfix'] = "Not to Resolve";
 $lang->bug->resolutionList['tostory']    = 'Transfer to Story';
+
+
+#bug发现阶段的列表值
+$lang->bug->phaseList['design']       = 'design';
+$lang->bug->phaseList['smoke']       = 'smoke';
+$lang->bug->phaseList['interface']       = 'interface';
+$lang->bug->phaseList['auto']       = 'auto';
+$lang->bug->phaseList['test']       = 'test';
+$lang->bug->phaseList['preonline']       = 'preonline';
+$lang->bug->phaseList['online']       = 'online';
+$lang->bug->phaseList['custom']       = 'custom';
+$lang->bug->phaseList['other']       = 'other';
+
+#低级bug列表选项
+$lang->bug->lowbugList[0] = 'no';
+$lang->bug->lowbugList[1] = 'yes';
 
 /* 统计报表。*/
 $lang->bug->report = new stdclass();

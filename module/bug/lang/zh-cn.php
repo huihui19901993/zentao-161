@@ -69,6 +69,8 @@ $lang->bug->toCase           = '生成用例';
 $lang->bug->colorTag         = '颜色标签';
 #添加低级bug字段
 $lang->bug->lowbug           = '低级错误';
+#添加bug发现阶段字段
+$lang->bug->phase           = '发现阶段';
 
 /* 方法列表。*/
 $lang->bug->index              = '首页';
@@ -251,6 +253,17 @@ $lang->bug->resolutionList['tostory']    = '转为需求';
 #低级bug列表选项
 $lang->bug->lowbugList[0] = '否';
 $lang->bug->lowbugList[1] = '是';
+
+#bug发现阶段的列表值
+$lang->bug->phaseList['design']       = '测试阶段';
+$lang->bug->phaseList['smoke']       = '冒烟测试';
+$lang->bug->phaseList['interface']       = '接口测试';
+$lang->bug->phaseList['auto']       = '自动化测试';
+$lang->bug->phaseList['test']       = '测试阶段';
+$lang->bug->phaseList['preonline']       = '预发布阶段';
+$lang->bug->phaseList['online']       = '生产环境';
+$lang->bug->phaseList['custom']       = '客户验收';
+$lang->bug->phaseList['other']       = '其他';
 
 /* 统计报表。*/
 $lang->bug->report = new stdclass();

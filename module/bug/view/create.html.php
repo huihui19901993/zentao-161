@@ -67,6 +67,8 @@ js::set('confirmDeleteTemplate', $lang->bug->confirmDeleteTemplate);
         <?php if(!$showProject):?>
         <?php $showOS      = strpos(",$showFields,", ',os,')      !== false;?>
         <?php $showBrowser = strpos(",$showFields,", ',browser,') !== false;?>
+        <?php $showLowBug  = strpos(",$showFields,", ',lowbug,')      !== false;?>
+        <?php $showPhase = strpos(",$showFields,", ',phase,') !== false;?>
         <td>
           <div class='input-group' id='bugTypeInputGroup'>
             <?php
@@ -76,6 +78,15 @@ js::set('confirmDeleteTemplate', $lang->bug->confirmDeleteTemplate);
             unset($lang->bug->typeList['trackthings']);
             echo html::select('type', $lang->bug->typeList, $type, "class='form-control'");
             ?>
+
+            <?php if($showLowBug):?>
+                <span class='input-group-addon fix-border'><?php echo $lang->bug->lowbug?></span>
+                <?php echo html::select('lowbug', $lang->bug->lowbugList, $lowbug, "class='form-control'");?>
+            <?php endif;?>
+            <?php if($showPhase):?>
+                <span class='input-group-addon fix-border'><?php echo $lang->bug->phase?></span>
+                <?php echo html::select('phase', $lang->bug->phaseList, $phase, "class='form-control'");?>
+            <?php endif;?>
             <?php if($showOS):?>
             <span class='input-group-addon fix-border'><?php echo $lang->bug->os?></span>
             <?php echo html::select('os', $lang->bug->osList, $os, "class='form-control'");?>

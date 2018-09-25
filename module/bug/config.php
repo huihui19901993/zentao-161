@@ -12,7 +12,7 @@ $config->bug->resolve->requiredFields = 'resolution';
 
 $config->bug->list = new stdclass();
 $config->bug->list->allFields = 'id, module, project, story, task, 
-    title, keywords, severity, pri, type, os, browser, hardware,
+    title, keywords, severity, pri, type, lowbug, phase, os, browser, hardware,
     found, steps, status, activatedCount, confirmed, mailto,
     openedBy, openedDate, openedBuild, 
     assignedTo, assignedDate,
@@ -26,7 +26,7 @@ $config->bug->list->allFields = 'id, module, project, story, task,
 $config->bug->list->defaultFields = 'id,severity,pri,title,openedBy,assignedTo,resolvedBy,resolution';
 
 $config->bug->list->exportFields = 'id, product, branch, module, project, story, task, 
-    title, keywords, severity, pri, type, os, browser,
+    title, keywords, severity, pri, lowbug, phase, type, os, browser,
     steps, status, deadline, activatedCount, confirmed, mailto,
     openedBy, openedDate, openedBuild, 
     assignedTo, assignedDate,
@@ -37,7 +37,7 @@ $config->bug->list->exportFields = 'id, product, branch, module, project, story,
     lastEditedBy,
     lastEditedDate, files';
 
-$config->bug->list->customCreateFields      = 'project,story,task,pri,severity,os,browser,deadline,mailto,keywords';
+$config->bug->list->customCreateFields      = 'project,story,task,pri,severity,lowbug,phase,os,browser,deadline,mailto,keywords';
 $config->bug->list->customBatchCreateFields = 'module,project,steps,type,pri,severity,os,browser,keywords';
 $config->bug->list->customBatchEditFields   = 'type,severity,pri,productplan,assignedTo,deadline,status,resolvedBy,resolution,os,browser,keywords';
 
@@ -88,6 +88,8 @@ $config->bug->search['fields']['project']        = $lang->bug->project;
 $config->bug->search['fields']['severity']       = $lang->bug->severity;
 $config->bug->search['fields']['pri']            = $lang->bug->pri;
 $config->bug->search['fields']['type']           = $lang->bug->type;
+$config->bug->search['fields']['lowbug']           = $lang->bug->lowbug;
+$config->bug->search['fields']['phase']           = $lang->bug->phase;
 $config->bug->search['fields']['os']             = $lang->bug->os;
 $config->bug->search['fields']['browser']        = $lang->bug->browser;
 $config->bug->search['fields']['resolution']     = $lang->bug->resolution;
@@ -139,6 +141,8 @@ $config->bug->search['params']['project']       = array('operator' => '=',      
 $config->bug->search['params']['severity']      = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->severityList);
 $config->bug->search['params']['pri']           = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->priList);
 $config->bug->search['params']['type']          = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->typeList);
+$config->bug->search['params']['lowbug']          = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->lowbugList);
+$config->bug->search['params']['phase']          = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->phaseList);
 $config->bug->search['params']['os']            = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->osList);
 $config->bug->search['params']['browser']       = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->browserList);
 $config->bug->search['params']['resolution']    = array('operator' => '=',       'control' => 'select', 'values' => $lang->bug->resolutionList);
@@ -191,6 +195,16 @@ $config->bug->datatable->fieldList['type']['title']    = 'type';
 $config->bug->datatable->fieldList['type']['fixed']    = 'no';
 $config->bug->datatable->fieldList['type']['width']    = '90';
 $config->bug->datatable->fieldList['type']['required'] = 'no';
+
+$config->bug->datatable->fieldList['lowbug']['title']    = 'lowbug';
+$config->bug->datatable->fieldList['lowbug']['fixed']    = 'no';
+$config->bug->datatable->fieldList['lowbug']['width']    = '90';
+$config->bug->datatable->fieldList['lowbug']['required'] = 'yes';
+
+$config->bug->datatable->fieldList['phase']['title']    = 'phase';
+$config->bug->datatable->fieldList['phase']['fixed']    = 'no';
+$config->bug->datatable->fieldList['phase']['width']    = '90';
+$config->bug->datatable->fieldList['phase']['required'] = 'yes';
 
 $config->bug->datatable->fieldList['status']['title']    = 'statusAB';
 $config->bug->datatable->fieldList['status']['fixed']    = 'no';

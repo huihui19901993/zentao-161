@@ -245,6 +245,7 @@ class bug extends control
         $this->bug->setMenu($this->products, $productID, $branch);
 
         /* Init vars. */
+        #设置默认值
         $moduleID   = 0;
         $projectID  = 0;
         $taskID     = 0;
@@ -264,9 +265,10 @@ class bug extends control
         $keywords   = '';
         $severity   = 3;
         $type       = 'codeerror';
+        $lowbug     = 0;
+        $phase      = 'test';
         $pri        = '';
         $color      = '';
-        $lowbug     = 0;
 
         /* Parse the extras. */
         $extras = str_replace(array(',', ' '), array('&', ''), $extras);
@@ -356,6 +358,7 @@ class bug extends control
         $this->view->branches         = $branches;
         $this->view->color            = $color;
         $this->view->lowbug           = $lowbug;
+        $this->view->phase           = $phase;
         $this->display();
     }
 
@@ -481,6 +484,8 @@ class bug extends control
         $this->view->productName = $productName;
         $this->view->modulePath  = $this->tree->getParents($bug->module);
         $this->view->bug         = $bug;
+        $this->view->lowbug         = $bug->lowbug;
+        $this->view->phase         = $bug->phase;
         $this->view->branchName  = $this->session->currentProductType == 'normal' ? '' : $this->loadModel('branch')->getById($bug->branch, $bug->product);
         $this->view->users       = $this->user->getPairs('noletter');
         $this->view->actions     = $this->action->getList('bug', $bugID);
@@ -574,6 +579,9 @@ class bug extends control
         if(($bug->resolvedBuild) and isset($allBuilds[$bug->resolvedBuild])) $oldResolvedBuild[$bug->resolvedBuild] = $allBuilds[$bug->resolvedBuild];
 
         $this->view->bug              = $bug;
+        #bug对象的值
+        $this->view->lowbug           = $bug->lowbug;
+        $this->view->phase            = $bug->phase;
         $this->view->productID        = $productID;
         $this->view->productName      = $this->products[$productID];
         $this->view->plans            = $this->loadModel('productplan')->getPairs($productID, $bug->branch);
